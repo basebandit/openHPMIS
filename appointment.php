@@ -89,15 +89,15 @@ if (!$membersite->CheckLogin()) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="main.php/appointment/index">
+                    <a class="navbar-brand" href="main.php">
                         openHPMIS</a> 
                 </div>
                 <div style="color: white;float:left;font-size: 16px;margin-left:25px;">
-                    <h3>Appointment					</h3>
+                    <h3>Appointments				</h3>
                 </div>
                 <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
-                    Welcome,<?php echo $membersite->UserFullName(); ?>					<!--<a href="main.php/admin/change_profile" class="btn btn-primary square-btn-adjust">Change Profile</a>-->
-                    <a href="main.php/login/logout" class="btn btn-danger square-btn-adjust">Log Out</a> 
+                    Welcome,<?php echo $membersite->UserFullName(); ?>			
+                    <a href="logout.php" class="btn btn-danger square-btn-adjust">Log Out</a> 
                 </div>
             </nav> 
             <nav class="navbar-default navbar-side" role="navigation">
@@ -115,7 +115,7 @@ if (!$membersite->CheckLogin()) {
 
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="main.php/appointment/inavailability">Inavailablity</a>
+                                    <a href="appointment_inavailability.php">Inavailablity</a>
                                 </li>							
                             </ul>
                         </li>				
@@ -127,13 +127,13 @@ if (!$membersite->CheckLogin()) {
                                     <a href="appointment_report.php">Appointment Report</a>
                                 </li>							
                                 <li>
-                                    <a href="main.php/stock/purchase_report">Purchase Report</a>
+                                    <a href="purchase_report.php">Purchase Report</a>
                                 </li>							
                                 <li>
-                                    <a href="main.php/patient/bill_detail_report">Bill Detail Report</a>
+                                    <a href="bill_detail_report.php">Bill Detail Report</a>
                                 </li>							
                                 <li>
-                                    <a href="main.php/patient/patient_report">Patient Report</a>
+                                    <a href="patient_report.php">Patient Report</a>
                                 </li>							
                             </ul>
                         </li>				
@@ -142,37 +142,36 @@ if (!$membersite->CheckLogin()) {
 
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="main.php/settings/clinic">Clinic Detail</a>
+                                    <a href="clinic.php">Clinic Detail</a>
                                 </li>							
                                 <li>
-                                    <a href="main.php/settings/invoice">Invoice</a>
+                                    <a href="invoice.php">Invoice</a>
                                 </li>							
                                 <li>
-                                    <a href="main.php/admin/users">Users</a>
+                                    <a href="users.php">Users</a>
                                 </li>							
                                 <li>
-                                    <a href="main.php/template/index">Change Template</a>
+                                    <a href="template.php">Change Template</a>
                                 </li>							
                                 <li>
-                                    <a href="main.php/settings/change_settings">Setting</a>
+                                    <a href="change_settings.php">Setting</a>
                                 </li>							
                             </ul>
                         </li>				
                         <li>
-                            <a href="main.php/module/index"><i class="fa fa-shopping-cart fa-3x"></i>Modules</a>
+                            <a href="module.php"><i class="fa fa-shopping-cart fa-3x"></i>Modules</a>
                         </li>				
 
 
                         <li>
-                            <a target="_blank" title="Sanskruti Technologies" href="http://sanskrutitech.in">&copy; 2015 Powered By d3vm4r5</a>
-                            <a target="_blank" href="http://sanskrutitech.in/chikitsa-patient-management-system/">openHPMIS Version 0.1.1</a>
+                            <a target="_blank" title="Devmars Solutions" href="http://devmars.com">&copy; 2015 Devmars Solutions</a>
+                            <a target="_blank" href="http://devmars.com/openHPMIS-HIV-patient-management-system/">openHPMIS Version 0.1.0</a>
                         </li>
                     </ul>
 
                 </div>
 
             </nav>  
-
             <div id="page-wrapper" >
                 <script type="text/javascript" charset="utf-8">
                     $(window).load(function () {

@@ -1,9 +1,10 @@
 <?php
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+require_once("./include/membersite_config.php");
+
+if (!$membersite->CheckLogin()) {
+    $membersite->RedirectToURL("login.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -88,15 +89,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost/Chikitsa0.1.4/main.php/appointment/index">
-                        Chikitsa</a> 
+                    <a class="navbar-brand" href="main.php">
+                        openHPMIS</a> 
                 </div>
                 <div style="color: white;float:left;font-size: 16px;margin-left:25px;">
-                    <h3>Tag Line					</h3>
+                    <h3>Appointment Report			</h3>
                 </div>
                 <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
-                    Welcome, Administrator				<a href="http://localhost/Chikitsa0.1.4/main.php/admin/change_profile" class="btn btn-primary square-btn-adjust">Change Profile</a>
-                    <a href="http://localhost/Chikitsa0.1.4/main.php/login/logout" class="btn btn-danger square-btn-adjust">Log Out</a> 
+                    Welcome,<?php echo $membersite->UserFullName(); ?>			
+                    <a href="logout.php" class="btn btn-danger square-btn-adjust">Log Out</a> 
                 </div>
             </nav> 
             <nav class="navbar-default navbar-side" role="navigation">
@@ -104,17 +105,17 @@
                     <ul class="nav" id="main-menu">
 
                         <li>
-                            <a href="http://localhost/Chikitsa0.1.4/main.php/patient/index"><i class="fa fa-users fa-3x"></i>Patients</a>
+                            <a href="main.php"><i class="fa fa-users fa-3x"></i>Patients</a>
                         </li>				
                         <li>
-                            <a href="http://localhost/Chikitsa0.1.4/main.php/appointment/index"><i class="fa fa-calendar fa-3x"></i>Appointments</a>
+                            <a href="appointment.php"><i class="fa fa-calendar fa-3x"></i>Appointments</a>
                         </li>				
                         <li>
-                            <a href="http://localhost/Chikitsa0.1.4/main.php/#"><i class="fa fa-user-md fa-3x"></i>Doctor</a>
+                            <a href="main.php/#"><i class="fa fa-user-md fa-3x"></i>Doctor</a>
 
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/main.php/appointment/inavailability">Inavailablity</a>
+                                    <a href="appointment_inavailability.php">Inavailablity</a>
                                 </li>							
                             </ul>
                         </li>				
@@ -153,75 +154,18 @@
                                     <a href="template.php">Change Template</a>
                                 </li>							
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/main.php/settings/change_settings">Setting</a>
+                                    <a href="change_settings.php">Setting</a>
                                 </li>							
                             </ul>
                         </li>				
                         <li>
-                            <a href="http://localhost/Chikitsa0.1.4/main.php/module/index"><i class="fa fa-shopping-cart fa-3x"></i>Modules</a>
+                            <a href="module.php"><i class="fa fa-shopping-cart fa-3x"></i>Modules</a>
                         </li>				
 
-                        <!--li>
-        <a href="http://localhost/Chikitsa0.1.4/main.php/patient/index"><i class="fa fa-users fa-3x"></i>Patients</a>
-</li>
-                                                <li>
-        <a href="http://localhost/Chikitsa0.1.4/main.php/appointment/index"><i class="fa fa-calendar fa-3x"></i>Appointments</a>
-</li>
-                                                <li>
-        <a href="#"><i class="fa fa-user-md fa-3x"></i>Doctor</a>
-        <ul class="nav nav-second-level">
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/appointment/inavailability">Inavailablity</a></li>
-                 <li><a href="http://localhost/Chikitsa0.1.4/main.php/doctor/index">Doctor Detail</a></li>
-                  <li><a href="http://localhost/Chikitsa0.1.4/main.php/doctor/department">Department</a></li>
-                  <li><a href="http://localhost/Chikitsa0.1.4/main.php/doctor/doctor_type">Type</a></li>
-                  <li><a href="http://localhost/Chikitsa0.1.4/main.php/doctor/fees">Fees Detail</a></li>
-                  <li><a href="http://localhost/Chikitsa0.1.4/main.php/doctor/doctor_schedule">Doctor Schdule</a></li>					 
-                  
-        </ul>
-</li>
-                                                <li>
-        <a href="#"><i class="fa fa-calculator fa-3x"></i>Stock</a>
-<ul class="nav nav-second-level">
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/stock/item">Items</a></li>
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/stock/supplier">Supplier</a></li>
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/stock/purchase">Purchase</a></li>
-<li><a href="#">Sell</a>
-<ul class="nav nav-third-level">
-    <li><a href="http://localhost/Chikitsa0.1.4/main.php/stock/all_sell">All Sell</a></li>
-    <li><a href="http://localhost/Chikitsa0.1.4/main.php/stock/sell">New Sell</a></li>
-</ul>
-</li>
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/stock/stock_report">Stock Report</a></li>
-</ul>
-</li> 
-                                                <li >
-        <a href="#"><i class="fa fa-line-chart fa-3x"></i>Reports</a>
-<ul class="nav nav-second-level">
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/appointment/appointment_report">Appointment Report</a></li>
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/stock/purchase_report" target="_blank">Purchase Register</a></li>
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/patient/bill_detail_report" target="_blank">Bill Report</a></li>
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/patient/patient_report" target="_blank">Patient Report</a></li>
-</ul>
-</li>
-                                                <li >
-         
-        <a href="http://localhost/Chikitsa0.1.4/main.php/settings/treatment"><i class="fa fa-medkit fa-3x"></i>Treatments</a>
-</li>
-                                                <li >
-        <a href="#"><i class="fa fa-cog fa-3x"></i>Administration</a>
-<ul class="nav nav-second-level">
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/settings/clinic">Clinic Details</a></li>
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/settings/invoice">Invoice Settings</a></li>
-<li><a href="http://localhost/Chikitsa0.1.4/main.php/admin/users">Users</a></li>
-                 <li><a href="http://localhost/Chikitsa0.1.4/main.php/admin/category">Category</a></li>
-                <li><a href="http://localhost/Chikitsa0.1.4/main.php/template/index">Change Template</a></li> 
-                <li><a href="http://localhost/Chikitsa0.1.4/main.php/settings/change_settings">Settings</a></li>	
-                <li><a href="http://localhost/Chikitsa0.1.4/main.php/admin/menu_access">Menu Access</a></li>					
-</ul> 
-</li-->
+
                         <li>
-                            <a target="_blank" title="Sanskruti Technologies" href="http://sanskrutitech.in">&copy; 2014 Sanskruti Technologies</a>
-                            <a target="_blank" href="http://sanskrutitech.in/chikitsa-patient-management-system/">Chikitsa Version 0.1.4</a>
+                            <a target="_blank" title="Devmars Solutions" href="http://devmars.com">&copy; 2015 Devmars Solutions</a>
+                            <a target="_blank" href="http://devmars.com/openHPMIS-HIV-patient-management-system/">openHPMIS Version 0.1.0</a>
                         </li>
                     </ul>
 
@@ -251,7 +195,7 @@
                                 <div class="panel-heading">
                                     Appointment Report				</div>
                                 <div class="panel-body">
-                                    <form action="http://localhost/Chikitsa0.1.4/main.php/appointment/appointment_report" method="post" accept-charset="utf-8">					<div class="col-md-3">
+                                    <form action="appointment_report.php" method="post" accept-charset="utf-8">					<div class="col-md-3">
                                             Date						<input type="date" name="app_date" id="app_date" class="form-control" value="" />
                                         </div>
                                         <div class="col-md-3" >

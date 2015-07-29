@@ -1,75 +1,83 @@
+<?php
+require_once("./include/membersite_config.php");
+
+if (!$membersite->CheckLogin()) {
+    $membersite->RedirectToURL("login.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Chikitsa - Patient Management System</title>
+        <title>openHPMIS</title>
 
-        <script src="http://localhost/Chikitsa0.1.4/js/jquery.timepicker.js"></script>
-        <script src="http://localhost/Chikitsa0.1.4/js/jquery.dataTables.js"></script>
-        <script src="http://localhost/Chikitsa0.1.4/js/common.js"></script>
+        <script src="style/extra/js/jquery.timepicker.js"></script>
+        <script src="style/extra/js/jquery.dataTables.js"></script>
+        <script src="style/extra/js/common.js"></script>
 
-        <script type="text/javascript" language="javascript" src="http://localhost/Chikitsa0.1.4/js/jquery-ui.js"></script>
-        <script type="text/javascript" language="javascript" src="http://localhost/Chikitsa0.1.4/js/autocomplete.js"></script>
+        <script type="text/javascript" language="javascript" src="style/extra/js/jquery-ui.js"></script>
+        <script type="text/javascript" language="javascript" src="style/extra/js/autocomplete.js"></script>
 
-        <link rel="stylesheet" href='http://localhost/Chikitsa0.1.4/js/jquery.timepicker.css' type="text/css"/>
+        <link rel="stylesheet" href='style/extra/js/jquery.timepicker.css' type="text/css"/>
 
-        <link rel="stylesheet" href='http://localhost/Chikitsa0.1.4/js/themes/smoothness/jquery-ui-1.8.4.custom.css' type="text/css"/>
+        <link rel="stylesheet" href='style/extra/js/themes/smoothness/jquery-ui-1.8.4.custom.css' type="text/css"/>
 
 
         <!--Start Lightbox JS and CSS-->
 
-<!--        <script src="http://localhost/Chikitsa0.1.4/js/lightbox/jquery-1.7.2.min.js"></script>-->
-        <script src="http://localhost/Chikitsa0.1.4/js/lightbox/lightbox.js"></script>        
-        <link href="http://localhost/Chikitsa0.1.4/css/lightbox.css" rel="stylesheet" />
+<!--        <script src="style/extra/js/lightbox/jquery-1.7.2.min.js"></script>-->
+        <script src="style/extra/js/lightbox/lightbox.js"></script>        
+        <link href="style/extra/css/lightbox.css" rel="stylesheet" />
 
         <!--End Lightbox JS and CSS-->        
 
         <!-- CSS FOR MULTIPLE SELECT -->
-        <link rel="stylesheet" href="http://localhost/Chikitsa0.1.4/css/docsupport/chosen.css">
+        <link rel="stylesheet" href="style/extra/css/docsupport/chosen.css">
         <style type="text/css" media="all">
             /* fix rtl for demo */
             .chzn-rtl .chzn-drop { left: -9000px; }
         </style>
 
         <!-- END CSS MULTIPLE SELECT -->
-        <link rel="stylesheet" href='http://localhost/Chikitsa0.1.4/css/style.css' type="text/css"/>
+        <link rel="stylesheet" href='style/extra/css/style.css' type="text/css"/>
         <!-- BOOTSTRAP STYLES-->
-        <link href="http://localhost/Chikitsa0.1.4/assets/css/bootstrap.css" rel="stylesheet" />
+        <link href="style/extra/assets/css/bootstrap.css" rel="stylesheet" />
         <!-- JQUERY UI STYLES-->
-        <link href="http://localhost/Chikitsa0.1.4/assets/css/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" />
+        <link href="style/extra/assets/css/jquery-ui-1.9.1.custom.min.css" rel="stylesheet" />
         <!-- FONTAWESOME STYLES-->
-        <link href="http://localhost/Chikitsa0.1.4/assets/css/font-awesome.css" rel="stylesheet" />
+        <link href="style/extra/assets/css/font-awesome.css" rel="stylesheet" />
         <!-- CUSTOM STYLES-->
-        <link href="http://localhost/Chikitsa0.1.4/assets/css/custom.css" rel="stylesheet" />
+        <link href="style/extra/assets/css/custom.css" rel="stylesheet" />
         <!-- CHIKITSA STYLES-->
-        <link href="http://localhost/Chikitsa0.1.4/assets/css/chikitsa.css" rel="stylesheet" />
+        <link href="style/extra/assets/css/chikitsa.css" rel="stylesheet" />
         <!-- TABLE STYLES-->
-        <link href="http://localhost/Chikitsa0.1.4/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+        <link href="style/extra/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 
 
         <!-- JQUERY SCRIPTS -->
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/jquery-1.10.2.js"></script>
+        <script src="style/extra/assets/js/jquery-1.10.2.js"></script>
         <!-- JQUERY UI SCRIPTS -->
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/jquery-ui.js"></script>
+        <script src="style/extra/assets/js/jquery-ui.js"></script>
         <!-- BOOTSTRAP SCRIPTS -->
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/bootstrap.min.js"></script>
+        <script src="style/extra/assets/js/bootstrap.min.js"></script>
         <!-- METISMENU SCRIPTS -->
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/jquery.metisMenu.js"></script>
+        <script src="style/extra/assets/js/jquery.metisMenu.js"></script>
         <!-- DATA TABLE SCRIPTS -->
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/dataTables/jquery.dataTables.js"></script>
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/dataTables/dataTables.bootstrap.js"></script>
+        <script src="style/extra/assets/js/dataTables/jquery.dataTables.js"></script>
+        <script src="style/extra/assets/js/dataTables/dataTables.bootstrap.js"></script>
         <!-- TimePicker SCRIPTS-->
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/jquery.datetimepicker.js"></script>
-        <link href="http://localhost/Chikitsa0.1.4/assets/js/jquery.datetimepicker.css" rel="stylesheet" />
+        <script src="style/extra/assets/js/jquery.datetimepicker.js"></script>
+        <link href="style/extra/assets/js/jquery.datetimepicker.css" rel="stylesheet" />
         <!-- CHOSEN SCRIPTS-->
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/chosen.jquery.min.js"></script>
-        <link href="http://localhost/Chikitsa0.1.4/assets/css/chosen.min.css" rel="stylesheet" />
+        <script src="style/extra/assets/js/chosen.jquery.min.js"></script>
+        <link href="style/extra/assets/css/chosen.min.css" rel="stylesheet" />
         <!-- Lightbox SCRIPTS-->
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/lightbox.min.js"></script>
-        <link href="http://localhost/Chikitsa0.1.4/assets/css/lightbox.css" rel="stylesheet" />
+        <script src="style/extra/assets/js/lightbox.min.js"></script>
+        <link href="style/extra/assets/css/lightbox.css" rel="stylesheet" />
         <!-- Sketch SCRIPTS-->
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/sketch.js"></script>	
+        <script src="style/extra/assets/js/sketch.js"></script>	
         <!-- CUSTOM SCRIPTS -->
-        <script src="http://localhost/Chikitsa0.1.4/assets/js/custom.js"></script>
+        <script src="style/extra/assets/js/custom.js"></script>
     </head>
     <body>
         <div id="wrapper">
@@ -81,15 +89,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="http://localhost/Chikitsa0.1.4/index.php/appointment/index">
-                        Chikitsa</a> 
+                    <a class="navbar-brand" href="main.php">
+                        openHPMIS</a> 
                 </div>
                 <div style="color: white;float:left;font-size: 16px;margin-left:25px;">
-                    <h3>Tag Line					</h3>
+                    <h3>Add Patient</h3>
                 </div>
                 <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">
-                    Welcome, Administrator				<a href="http://localhost/Chikitsa0.1.4/index.php/admin/change_profile" class="btn btn-primary square-btn-adjust">Change Profile</a>
-                    <a href="http://localhost/Chikitsa0.1.4/index.php/login/logout" class="btn btn-danger square-btn-adjust">Log Out</a> 
+                    Welcome,<?php echo $membersite->UserFullName(); ?>			
+                    <a href="logout.php" class="btn btn-danger square-btn-adjust">Log Out</a> 
                 </div>
             </nav> 
             <nav class="navbar-default navbar-side" role="navigation">
@@ -97,124 +105,187 @@
                     <ul class="nav" id="main-menu">
 
                         <li>
-                            <a href="http://localhost/Chikitsa0.1.4/index.php/patient/index"><i class="fa fa-users fa-3x"></i>Patients</a>
+                            <a href="main.php"><i class="fa fa-users fa-3x"></i>Patients</a>
                         </li>				
                         <li>
-                            <a href="http://localhost/Chikitsa0.1.4/index.php/appointment/index"><i class="fa fa-calendar fa-3x"></i>Appointments</a>
+                            <a href="appointment.php"><i class="fa fa-calendar fa-3x"></i>Appointments</a>
                         </li>				
                         <li>
-                            <a href="http://localhost/Chikitsa0.1.4/index.php/#"><i class="fa fa-user-md fa-3x"></i>Doctor</a>
+                            <a href="main.php/#"><i class="fa fa-user-md fa-3x"></i>Doctor</a>
 
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/index.php/appointment/inavailability">Inavailablity</a>
+                                    <a href="appointment_inavailability.php">Inavailablity</a>
                                 </li>							
                             </ul>
                         </li>				
                         <li>
-                            <a href="http://localhost/Chikitsa0.1.4/index.php/#"><i class="fa fa-line-chart fa-3x"></i>Reports</a>
+                            <a href="main.php/#"><i class="fa fa-line-chart fa-3x"></i>Reports</a>
 
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/index.php/appointment/appointment_report">Appointment Report</a>
+                                    <a href="appointment_report.php">Appointment Report</a>
                                 </li>							
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/index.php/stock/purchase_report">Purchase Report</a>
+                                    <a href="purchase_report.php">Purchase Report</a>
                                 </li>							
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/index.php/patient/bill_detail_report">Bill Detail Report</a>
+                                    <a href="bill_detail_report.php">Bill Detail Report</a>
                                 </li>							
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/index.php/patient/patient_report">Patient Report</a>
+                                    <a href="patient_report.php">Patient Report</a>
                                 </li>							
                             </ul>
                         </li>				
                         <li>
-                            <a href="http://localhost/Chikitsa0.1.4/index.php/#"><i class="fa fa-cog fa-3x"></i>Administration</a>
+                            <a href="main.php/#"><i class="fa fa-cog fa-3x"></i>Administration</a>
 
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/index.php/settings/clinic">Clinic Detail</a>
+                                    <a href="clinic.php">Clinic Detail</a>
                                 </li>							
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/index.php/settings/invoice">Invoice</a>
+                                    <a href="invoice.php">Invoice</a>
                                 </li>							
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/index.php/admin/users">Users</a>
+                                    <a href="users.php">Users</a>
                                 </li>							
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/index.php/template/index">Change Template</a>
+                                    <a href="template.php">Change Template</a>
                                 </li>							
                                 <li>
-                                    <a href="http://localhost/Chikitsa0.1.4/index.php/settings/change_settings">Setting</a>
+                                    <a href="change_settings.php">Setting</a>
                                 </li>							
                             </ul>
                         </li>				
                         <li>
-                            <a href="http://localhost/Chikitsa0.1.4/index.php/module/index"><i class="fa fa-shopping-cart fa-3x"></i>Modules</a>
+                            <a href="module.php"><i class="fa fa-shopping-cart fa-3x"></i>Modules</a>
                         </li>				
 
 
                         <li>
-                            <a target="_blank" title="Sanskruti Technologies" href="http://sanskrutitech.in">&copy; 2014 Sanskruti Technologies</a>
-                            <a target="_blank" href="http://sanskrutitech.in/chikitsa-patient-management-system/">Chikitsa Version 0.1.4</a>
+                            <a target="_blank" title="Devmars Solutions" href="http://devmars.com">&copy; 2015 Devmars Solutions</a>
+                            <a target="_blank" href="http://devmars.com/openHPMIS-HIV-patient-management-system/">openHPMIS Version 0.1.0</a>
                         </li>
                     </ul>
 
                 </div>
 
-            </nav>  
+            </nav>   
 
             <div id="page-wrapper" >
-                <script type="text/javascript" charset="utf-8">
-                    $(window).load(function () {
+                <script type="text/javascript">
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {//Check if input has files.
+                            var reader = new FileReader(); //Initialize FileReader.
 
-                        $('.confirmDelete').click(function () {
-                            return confirm("Are you sure you want to delete?");
-                        })
-
-                        $("#patient_table").dataTable({
-                            "pageLength": 50
-                        });
-                    });
+                            reader.onload = function (e) {
+                                $('#PreviewImage').attr('src', e.target.result);
+                                $("#PreviewImage").resizable({aspectRatio: true, maxHeight: 300});
+                            };
+                            reader.readAsDataURL(input.files[0]);
+                        } else {
+                            $('#PreviewImage').attr('src', "#");
+                        }
+                    }
                 </script>
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- Advanced Tables -->
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                    Patients
+                                    Patient
                                 </div>
                                 <div class="panel-body">
-                                    <a title="Add Patient" href="http://localhost/Chikitsa0.1.4/index.php/patient/insert/" class="btn btn-primary square-btn-adjust">Add Patient</a>
-                                    <p></p>
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="patient_table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Id</th>
-                                                    <th>Name</th>
-                                                    <th>Display Name</th>
-                                                    <th>Phone Number</th>
-                                                    <th>Reference By</th>
-                                                    <th>Visit</th>
-                                                    <th>Follow Up</th>
-                                                    <th>Delete</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                    <form action="style/extra/index.php/patient/edit" method="post" accept-charset="utf-8" enctype="multipart/form-data">															<div class="col-md-12">
+                                            <div class="col-md-3">
+                                                <label for="first_name">Name</label> 
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="input" name="first_name" class="form-control" value=""/>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="input" name="middle_name" class="form-control" value=""/>						
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="input" name="last_name" class="form-control" value=""/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p></p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="display_id">Patient ID</label>
+                                                    <input type="input" name="display_id" class="form-control" value=""/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="display_name">Display Name</label>
+                                                    <input type="input" name="display_name" class="form-control" value=""/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="reference_by">Reference By</label>
+                                                    <input type="input" name="reference_by" class="form-control" value=""/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="phone_number">Phone Number</label>
+                                                    <input type="input" name="phone_number" class="form-control" value=""/><br/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="input" name="email" class="form-control" value=""/><br/>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <button class="btn btn-primary" type="submit" name="submit" />Save</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <img id="PreviewImage" src="style/extra/images/Profile.png" alt="Profile Image"  height="100" width="100" />
+                                                    <input type="file" id="userfile" name="userfile" class="form-control" size="20" onchange="readURL(this);" />
+                                                    <input type="hidden" id="src" name="src" value="" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="type">Address Type</label> 
+                                                    <select name="type" class="form-control">
+                                                        <option></option>
+                                                        <option value="Home" >Home</option>
+                                                        <option value="Office" >Office</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="type">Address Line 1</label> 
+                                                    <input type="input"  class="form-control" name="address_line_1" value=""/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="type"></label> 
+                                                    <input type="input" class="form-control" name="address_line_2" value=""/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="city">City</label> 
+                                                    <input type="input" class="form-control" name="city" value=""/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="state">State</label> 
+                                                    <input type="input" class="form-control" name="state" value=""/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="postal_code">Postal Code</label> 
+                                                    <input type="input" class="form-control" name="postal_code" value=""/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="country">Country</label> 
+                                                    <input type="input" class="form-control" name="country" value=""/>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    </form>				</div>
                             </div>
-                            <!--End Advanced Tables -->
                         </div>
                     </div>
-                </div>
-
-            </div>
+                </div></div>
 
     </body>
 </html>

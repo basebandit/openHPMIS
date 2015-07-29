@@ -172,57 +172,75 @@ if (!$membersite->CheckLogin()) {
                 </div>
 
             </nav>  
-
             <div id="page-wrapper" >
                 <script type="text/javascript" charset="utf-8">
-                    $(window).load(function () {
+                    $(function () {
+                        $("#bill_from_date").datepicker({
+                            dateFormat: "dd-mm-yy",
+                            showButtonPanel: true,
+                            changeMonth: true,
+                            changeYear: true
+                        });
+                    });
 
-                        $('.confirmDelete').click(function () {
-                            return confirm("Are you sure you want to delete?");
-                        })
-
-                        $("#patient_table").dataTable({
-                            "pageLength": 50
+                    $(function () {
+                        $("#bill_to_date").datepicker({
+                            dateFormat: "dd-mm-yy",
+                            showButtonPanel: true,
+                            changeMonth: true,
+                            changeYear: true
                         });
                     });
                 </script>
                 <div id="page-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <!-- Advanced Tables -->
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                    Patients
-                                </div>
+                                    Bill Report			</div>
                                 <div class="panel-body">
-                                    <a title="Add Patient" href="patient.php" class="btn btn-primary square-btn-adjust">Add Patient</a>
-                                    <p></p>
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="patient_table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Id</th>
-                                                    <th>Name</th>
-                                                    <th>Display Name</th>
-                                                    <th>Phone Number</th>
-                                                    <th>Reference By</th>
-                                                    <th>Visit</th>
-                                                    <th>Follow Up</th>
-                                                    <th>Delete</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                                    <form action="bill_report.php" method="post" accept-charset="utf-8">				<div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="bill_from_date">From Date</label>
+                                                <input type="date" name="bill_from_date" id="bill_from_date" value="" class="form-control"/>			
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="bill_to_date">To Date</label>
+                                                <input type="date" name="bill_to_date" id="bill_to_date" value="" class="form-control" />			
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label for="bill_from_date">
+                                                    From Doctor						</label>
+                                                <select name="doctor" class="form-control" >
+                                                    <option value="all">All</option>
+                                                </select>		
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>&nbsp;</label>
+                                                <select name="report_of" class="form-control">
+                                                    <option value="all">All</option>
+                                                    <option value="medicine">Prescription</option>
+                                                    <option value="treatment">Treatment</option>
+                                                </select>			
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <button type="submit" name="submit" class="btn btn-primary" />Go</button>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="doctor_id" id="doctor_id" value="" />
+                                    </form>			</div>
                             </div>
-                            <!--End Advanced Tables -->
                         </div>
                     </div>
                 </div>
 
-            </div>
-
-    </body>
-</html>
+                </body>
+                </html>
