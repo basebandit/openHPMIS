@@ -12,6 +12,7 @@ $membersite->LogOut();
         <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
     </head>
     <body>
+<<<<<<< HEAD
         <span id='membersite_content_tk'>
             <h2>You have logged out</h2>
 
@@ -19,5 +20,13 @@ $membersite->LogOut();
                 <a href='login.php'>Login Again</a>
             </p>
         </span>
+=======
+
+        <h2>You have logged out</h2>
+        <p>
+            <a href='login.php'>Login Again</a>
+        </p>
+
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
     </body>
 </html>

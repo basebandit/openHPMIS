@@ -292,8 +292,12 @@ class Membersite {
     }
 
     function HandleDBError($err) {
+
         //  $this->HandleError($err . "\r\n mysqlerror:" . mysql_error());
         $this->HandleError($err);
+=======
+        $this->HandleError($err . "\r\n mysqlerror:" . mysql_error());
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
     }
 
     function GetFromAddress() {
@@ -701,8 +705,12 @@ class Membersite {
         $mailer->From = 'openHPMIS.org';
         //send the message, check for errors
         if (!$mailer->send()) {
+<<<<<<< HEAD
             //echo "Mailer Error: " . $mailer->ErrorInfo;
             $membersite->RedirectToURL("error.php");
+=======
+            echo "Mailer Error: " . $mailer->ErrorInfo;
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
             return false;
         } else {
             echo "Message sent!";

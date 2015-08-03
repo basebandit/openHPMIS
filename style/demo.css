@@ -11,7 +11,11 @@
 }
 
 body {
+<<<<<<< HEAD
     background: white;
+=======
+    background: #34495e;
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
 }
 
 .container > header,
@@ -28,13 +32,21 @@ body {
 }
 
 .container > header a {
+<<<<<<< HEAD
     color: rgba(255, 255, 255,0.35);//#566473;
+=======
+    color: #566473;
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
     text-decoration: none;
     outline: none;
 }
 
 .container > header a:hover {
+<<<<<<< HEAD
     color:  #2196f3;//#4f7bab;
+=======
+    color: #4f7bab;
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
 }
 
 .container > header h1 {
@@ -47,7 +59,11 @@ body {
 .container > header span {
     display: block;
     font-size: 55%;
+<<<<<<< HEAD
     color: #B3E5FC;//#74818e;
+=======
+    color: #74818e;
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
     padding: 0 0 0.6em 0.1em;
 }
 

@@ -12,12 +12,19 @@ if (isset($_POST['submitted'])) {
 
     <head>
         <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+<<<<<<< HEAD
         <title>Sign up</title>
+=======
+        <title>Contact us</title>
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
         <link rel="STYLESHEET" type="text/css" href="style/membersite.css" />
         <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,300,600,700" rel="stylesheet" type="text/css"></link>
         <link rel="STYLESHEET" type="text/css" href="style/pwdwidget.css" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
         <script src="scripts/pwdwidget.js" type="text/javascript"></script> 
 
 
@@ -28,7 +35,11 @@ if (isset($_POST['submitted'])) {
         <div id='membersite'>
             <form id='register' action='<?php echo $membersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
                 <fieldset >
+<<<<<<< HEAD
                     <!--                    <legend>Register</legend>-->
+=======
+                    <!--                    <h1>Register</h1>-->
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
 
                     <input type='hidden' name='submitted' id='submitted' value='1'/>
 
@@ -38,17 +49,29 @@ if (isset($_POST['submitted'])) {
                     <div><span class='error'><?php echo $membersite->GetErrorMessage(); ?></span></div>
                     <div class='container'>
                         <label for='name' >Your Full Name*: </label><br/>
+<<<<<<< HEAD
                         <input type='text' name='name' id='name' value='<?php echo $membersite->SafeDisplay('name') ?>' maxlength="50" onclick="this.value = ''"/><br/>
+=======
+                        <input type='text' name='name' id='name' value='<?php echo $membersite->SafeDisplay('name') ?>' maxlength="50" onfocus="this.value = '';"/><br/>
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
                         <span id='register_name_errorloc' class='error'></span>
                     </div>
                     <div class='container'>
                         <label for='email' >Email Address*:</label><br/>
+<<<<<<< HEAD
                         <input type='text' name='email' id='email' value='<?php echo $membersite->SafeDisplay('email') ?>' maxlength="50" onclick="this.value = ''"/><br/>
+=======
+                        <input type='text' name='email' id='email' value='<?php echo $membersite->SafeDisplay('email') ?>' maxlength="50" onfocus="this.value = '';"/><br/>
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
                         <span id='register_email_errorloc' class='error'></span>
                     </div>
                     <div class='container'>
                         <label for='username' >UserName*:</label><br/>
+<<<<<<< HEAD
                         <input type='text' name='username' id='username' value='<?php echo $membersite->SafeDisplay('username') ?>' maxlength="50" onclick="this.value = ''"/><br/>
+=======
+                        <input type='text' name='username' id='username' value='<?php echo $membersite->SafeDisplay('username') ?>' maxlength="50" onfocus="this.value = '';"/><br/>
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
                         <span id='register_username_errorloc' class='error'></span>
                     </div>
                     <div class='container' style='height:80px;'>
@@ -61,14 +84,23 @@ if (isset($_POST['submitted'])) {
                     </div>
 
                     <div class='container'>
+<<<<<<< HEAD
                         <input type='submit' name='Sign up' value='Submit' />
+=======
+                        <input type='submit' name='Submit' value='Sign up' />
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
                     </div>
 
                 </fieldset>
             </form>
+<<<<<<< HEAD
 
             <!-- client-side Form Validations:
             Uses the excellent form validation script from JavaScript-coder.com-->
+=======
+            <!-- client-side Form Validations:
+            -->
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
 
             <script type='text/javascript'>
                 // <![CDATA[
@@ -90,6 +122,13 @@ if (isset($_POST['submitted'])) {
 
                 // ]]>
             </script>
+<<<<<<< HEAD
 
+=======
+            <!--
+            Form Code End 
+            -->
+        </div>
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
     </body>
 </html>

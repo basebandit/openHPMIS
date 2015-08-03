@@ -3,7 +3,11 @@ require_once("./include/membersite_config.php");
 
 if (isset($_POST['submitted'])) {
     if ($membersite->Login()) {
+<<<<<<< HEAD
         $membersite->RedirectToURL("main.php");
+=======
+        $membersite->RedirectToURL("login-home.php");
+>>>>>>> 2ddc6cba457731a68db5c0c383605a2f0082d4fe
     }
 }
 ?>
