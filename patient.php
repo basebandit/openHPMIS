@@ -194,98 +194,123 @@ if (!$membersite->CheckLogin()) {
                         <div class="col-md-12">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                    Patient
+                                    Patient Profile
                                 </div>
-                                <div class="panel-body">
+                                <div class="panel-body" style="overflow-y: scroll;height:460px;">
                                     <form action="style/extra/index.php/patient/edit" method="post" accept-charset="utf-8" enctype="multipart/form-data">															<div class="col-md-12">
                                             <div class="col-md-3">
-                                                <label for="first_name">Name</label> 
+                                                <label for="facility_name">Facility Name</label>
                                             </div>
                                             <div class="col-md-3">
-                                                <input type="input" name="first_name" class="form-control" value=""/>
+                                                <input type="input" name="first_name" class="form-control" value="" placeholder="Facility Name"/>
                                             </div>
                                             <div class="col-md-3">
-                                                <input type="input" name="middle_name" class="form-control" value=""/>						
+                                                <input type="input" name="middle_name" class="form-control" value="" placeholder="Patient Clinic Number"/>						
                                             </div>
-                                            <div class="col-md-3">
-                                                <input type="input" name="last_name" class="form-control" value=""/>
+                                            <!--                                            <div class="col-md-3">
+                                                                                            <input type="input" name="last_name" class="form-control" value=""/>
+                                                                                        </div>-->
+                                            <!--</div>-->
+                                            <div class="col-md-12">
+                                                <p></p>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <p></p>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="display_id">Patient ID</label>
-                                                    <input type="input" name="display_id" class="form-control" value=""/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="display_name">Display Name</label>
-                                                    <input type="input" name="display_name" class="form-control" value=""/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="reference_by">Reference By</label>
-                                                    <input type="input" name="reference_by" class="form-control" value=""/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="phone_number">Phone Number</label>
-                                                    <input type="input" name="phone_number" class="form-control" value=""/><br/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="email">Email</label>
-                                                    <input type="input" name="email" class="form-control" value=""/><br/>
-                                                </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="display_id">Unique Patient Number</label>
+                                                        <input type="input" name="unique_patient_number" class="form-control" value=""/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="display_name">Patient  Name</label>
+                                                        <input type="input" name="patient_name" class="form-control" value=""/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="reference_by">Tel No</label>
+                                                        <input type="input" name="reference_by" class="form-control" value=""/>
+                                                    </div>
 
-                                                <div class="form-group">
-                                                    <button class="btn btn-primary" type="submit" name="submit" />Save</button>
+                                                    <div class="form-group">
+                                                        <label for="reference_by">Postal Address</label>
+                                                        <input type="input" name="reference_by" class="form-control" value=""/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="phone_number">Location</label>
+                                                        <input type="input" name="phone_number" class="form-control" value=""/><br/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">District</label>
+                                                        <input type="input" name="district" class="form-control" value=""/><br/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Sub Location</label>
+                                                        <input type="input" name="sub_location" class="form-control" value=""/><br/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Landmark</label>
+                                                        <input type="input" name="landmark" class="form-control" value=""/><br/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Nearest Health Center</label>
+                                                        <input type="input" name="nearest_health_center" class="form-control" value=""/><br/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="marital_status">Marital Status</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="radio inline control-label">Married Polygamous</label>
+                                                        <input type="radio" name="married_polygamous" class="form-control" value="">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button class="btn btn-primary" type="submit" name="submit" />Save</button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <img id="PreviewImage" src="style/extra/images/Profile.png" alt="Profile Image"  height="100" width="100" />
+                                                        <input type="file" id="userfile" name="userfile" class="form-control" size="20" onchange="readURL(this);" />
+                                                        <input type="hidden" id="src" name="src" value="" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="type">Address Type</label> 
+                                                        <select name="type" class="form-control">
+                                                            <option></option>
+                                                            <option value="Home" >Home</option>
+                                                            <option value="Office" >Office</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="type">Address Line 1</label> 
+                                                        <input type="input"  class="form-control" name="address_line_1" value=""/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="type"></label> 
+                                                        <input type="input" class="form-control" name="address_line_2" value=""/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="city">City</label> 
+                                                        <input type="input" class="form-control" name="city" value=""/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="state">State</label> 
+                                                        <input type="input" class="form-control" name="state" value=""/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="postal_code">Postal Code</label> 
+                                                        <input type="input" class="form-control" name="postal_code" value=""/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="country">Country</label> 
+                                                        <input type="input" class="form-control" name="country" value=""/>
+                                                    </div>    
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <img id="PreviewImage" src="style/extra/images/Profile.png" alt="Profile Image"  height="100" width="100" />
-                                                    <input type="file" id="userfile" name="userfile" class="form-control" size="20" onchange="readURL(this);" />
-                                                    <input type="hidden" id="src" name="src" value="" />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="type">Address Type</label> 
-                                                    <select name="type" class="form-control">
-                                                        <option></option>
-                                                        <option value="Home" >Home</option>
-                                                        <option value="Office" >Office</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="type">Address Line 1</label> 
-                                                    <input type="input"  class="form-control" name="address_line_1" value=""/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="type"></label> 
-                                                    <input type="input" class="form-control" name="address_line_2" value=""/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="city">City</label> 
-                                                    <input type="input" class="form-control" name="city" value=""/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="state">State</label> 
-                                                    <input type="input" class="form-control" name="state" value=""/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="postal_code">Postal Code</label> 
-                                                    <input type="input" class="form-control" name="postal_code" value=""/>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="country">Country</label> 
-                                                    <input type="input" class="form-control" name="country" value=""/>
-                                                </div>    
-                                            </div>
-                                        </div>
-                                    </form>				</div>
+                                    </form>				
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div></div>
 
-    </body>
-</html>
+                </div>
+
+                </body>
+                </html>   
